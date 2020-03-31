@@ -41,9 +41,10 @@
 	<a href="form.do">상영영화 추가하기</a>
 	
 	<div id="movies">
-	<c:forEach var="m" items="${movieMgr.list }">
+	<c:forEach var="m" items="${list }">
 		<div>
-			<a href="detail.do"><img src="images/${m.file }"></a>
+			<a href="detail.do?title=${m.title }">
+				<img src="${pageContext.request.contextPath}/upload/${m.file }"></a>
 			<p>${m.title}</p>
 		</div>
 	</c:forEach>

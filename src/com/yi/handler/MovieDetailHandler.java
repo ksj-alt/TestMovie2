@@ -21,7 +21,7 @@ public class MovieDetailHandler implements CommandHandler {
 			conn = JDBCUtil.getConnection();
 			MovieDAO dao = MovieDAO.getInstance();
 			Movie movie = dao.selectByTitle(conn, title);
-
+			System.out.println(movie);
 			req.setAttribute("movie", movie);
 		} catch (Exception e) {
 			e.printStackTrace();

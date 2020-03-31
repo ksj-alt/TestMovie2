@@ -38,7 +38,7 @@
 	
 	<h2><상영 시간표></h2>
 	<table>
-		<c:forEach var="m" items="${movieMgr.list }">
+		<c:forEach var="m" items="${list }">
 			<tr>
 				<th>${m.title }</th>
 				<td>${m.time }</td>

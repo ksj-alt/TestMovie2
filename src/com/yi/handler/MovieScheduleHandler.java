@@ -1,12 +1,14 @@
 package com.yi.handler;
 
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yi.dao.MovieDAO;
 import com.yi.jdbc.JDBCUtil;
+import com.yi.model.Movie;
 import com.yi.mvc.CommandHandler;
 
 public class MovieScheduleHandler implements CommandHandler {
@@ -17,13 +19,15 @@ public class MovieScheduleHandler implements CommandHandler {
 		try {
 			conn = JDBCUtil.getConnection();
 			MovieDAO dao = MovieDAO.getInstance();
+			List<Movie> list = dao.listMovie(conn);
+			req.setAttribute("list", list);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
-			
+			JDBCUtil.close(conn);
 		}
-		return null;
+		return "/WEB-INF/view/movie/movieSchedule.jsp";
 	}
 
 }

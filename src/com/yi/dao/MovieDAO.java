@@ -67,7 +67,7 @@ public class MovieDAO {
 	public Movie selectByTitle(Connection conn, String title) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+		System.out.println("title=="+title);
 		try {
 			String sql = "select * from movie where m_title = ?";
 			pstmt = conn.prepareStatement(sql);
